@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Owl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>What and Why?</h1>
+        <p>The purpose of the program is to provide users with an intelligent and interactive chat-based information assistant (not chat-based yet). Leveraging GPT models, the program aims to enhance the user's ability to retrieve accurate and relevant information across a wide range of topics.
+            The project originated from a desire to try out LLM APIs to build something I'd personally like to use. And with rampant misinformation around us all, Reading Owl seemed like a useful tool.
+
+            Key Features and Goals:
+            
+            1. Diverse Knowledge Base: The program taps into extensive knowledge repositories, enabling users to ask questions on various subjects and receive informative responses.
+            
+            2. Lateral Reading Assistance: Designed to aid users in lateral reading tasks, the assistant generates insightful questions that encourage users to explore diverse perspectives and sources.
+            
+            3. Summarization Capabilities: The program can summarize information from multiple sources, providing concise and coherent answers to user queries.
+            
+            How It Benefits Users:
+            
+            Efficient Information Retrieval: Users can quickly obtain information without the need for extensive searches, streamlining the research process.
+            
+            Promotes Critical Thinking: By generating insightful questions, the program promotes critical thinking and encourages users to consider multiple viewpoints.
+            
+            Lateral Reading Support: Facilitates lateral reading tasks by summarizing relevant information and providing questions that prompt users to explore further.
+            
+            User-Friendly Interface: The chat-based interaction makes the program accessible to a broad audience, irrespective of technical expertise.
+            
+            Time-Saving: Users can save time by receiving concise summaries and relevant questions, avoiding the need to sift through lengthy documents.</p>
+    </header>
+
+    <section>
+        <h1>How does it work?</h1>
+        <p>**Program Workflow Overview: Chat-Based Information Assistant**
+
+            Our chat-based information assistant operates through a streamlined pipeline that integrates advanced natural language processing (NLP) models to provide users with accurate and relevant information. The pipeline encompasses three key stages: Bing Search, Question Generation, and Summarization.
+            
+            1. Bing Search:
+               - Purpose: Initiates the information retrieval process by querying the Bing Search API to obtain relevant web pages.
+               - Implementation:
+                 <code>
+                    def bing_search(query, top_n=3):
+                     # Code for querying Bing Search API and extracting relevant web pages
+                     # ...
+                     for result in search_results["webPages"]["value"]:
+                     result_response = requests.get(result["url"])
+                     try:
+                         soup = BeautifulSoup(result_response.content, "html.parser")
+                         text = soup.find("body").get_text()
+                         clean_text = ""
+                         for line in text.split("\n"):
+                             clean_line = line.strip()
+                             if len(clean_line.split(" ")) > 3:
+                                 clean_text += f"{clean_line}\n"
+                     #...
+                        return return_list
+                
+                    </code>
+               - How It Works: Utilizes the Bing Search API to fetch search results based on user queries, retrieving a list of relevant URLs.
+            
+            2. Question Generation:
+               - Purpose: Generates insightful questions related to the retrieved information to encourage lateral reading and critical thinking.
+               - Implementation:
+                 <code>
+                    def generate_questions(input_text: str, provider='openai'):
+                     # Code for calling OpenAI APIs to generate questions based on input text
+                     messages = [
+                     {
+                         "role": "system",
+                         "content": "You are an informative and helpful assistant designed to assist users in the lateral reading task."
+                         "Your goal is to analyze a given segment of...
+                     },
+                     {
+                         "role": "user",
+                         "content": f"Text: {input_text}\n------\nCarefully choose...,
+                     },
+             
+                     # ...
+                        return questions
+                 </code>
+               - How It Works: Utilizes OpenAI's GPT-based model to generate a set of questions, fostering engagement and exploration of diverse perspectives.
+            
+            3. Summarization:
+               - Purpose: Summarizes information from the relevant web pages to provide users with concise and coherent answers.
+               - Implementation:
+                 <code>
+                    def summarize(question: str, documents: List[str], provider='openai'):
+                     # Code for summarizing information from web pages to answer user questions
+                     concatenated_input = ""
+                     for doc_id, document in enumerate(documents):
+                         concatenated_input += f"Document {doc_id + 1}:\n{document[:40000]}"
+                 
+                     # Define conversation messages for OpenAI API
+                     messages = [
+                         {
+                             "role": "system", 
+                             "content": "You are a factual and helpful assistant tasked with cohesively summarizing segments from various relevant... "
+                        
+                         },
+                         {
+                             "role": "user",
+                             "content": f'My question is "{question}" Cohesively and factually summarize the following documents to '
+                             f"answer my question.\n------\n{concatenated_input}",
+                         },
+                     ]
+                 
+                     # Ask ChatGPT to summarize the extracted chunks.
+                     retry_count = 0
+                     while retry_count < 3:
+                     # ...
+
+                        return summary
+                </code>
+
+               - How It Works: Takes user-generated questions and the content of relevant web pages, employing ChatGPT to produce a short, informative summary.</p>
+        <p>Refer to <a href="https://github.com/hardikp1/Final-Project/blob/main/README.md">README</a> for detailed instructions.</p> 
+    </section>
+
+    <section>
+        <h2>Example</h2>
+        <p> To understand the applicaiton of the program lets look at a simple example. To run tests yourself refer to the README linked above. </p>
+
+        <p>We first start with a statement to input. The program works best if its a statement and not a question.</p>    
+        <code>
+            def run_temporary():
+                input_text = "Giovanni Gentile is relevant in studying democracy and free society."
+        </code>
+        <p>
+            The program will go through the pipeline we highlighted above and provide you with results in the terminal. For our example, the answer will look something like this. 
+        </p>
+        <img src="/Users/hardikpandey/Documents/GitHub/hardikp1.github.io/Screenshot 2023-12-08 at 7.04.08 PM.png" alt="Possible result">
+    </section>
+
+    <section>
+        <h2>Attribution</h2>
+        <p>The program was posibble thanks to the free APIs provided by Microsoft and OpenAI.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Project Name. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
