@@ -29,7 +29,7 @@
 <body>
 
     <header>
-        <h1>What and Why?</h1>
+        <h2>What and Why?</h2>
         <p>The purpose of the program is to provide users with an intelligent and interactive chat-based information assistant (not chat-based yet). Leveraging GPT models, the program aims to enhance the user's ability to retrieve accurate and relevant information across a wide range of topics.
             The project originated from a desire to try out LLM APIs to build something I'd personally like to use. And with rampant misinformation around us all, Reading Owl seemed like a useful tool.
 
@@ -55,8 +55,8 @@
     </header>
 
     <section>
-        <h1>How does it work?</h1>
-        <p>**Program Workflow Overview: Chat-Based Information Assistant**
+        <h2>How does it work?</h2>
+        <p><strong>Program Workflow Overview: Chat-Based Information Assistant</strong>
 
             Our chat-based information assistant operates through a streamlined pipeline that integrates advanced natural language processing (NLP) models to provide users with accurate and relevant information. The pipeline encompasses three key stages: Bing Search, Question Generation, and Summarization.
             
@@ -111,31 +111,8 @@
                  <code>
                     def summarize(question: str, documents: List[str], provider='openai'):
                      # Code for summarizing information from web pages to answer user questions
-                     concatenated_input = ""
-                     for doc_id, document in enumerate(documents):
-                         concatenated_input += f"Document {doc_id + 1}:\n{document[:40000]}"
-                 
-                     # Define conversation messages for OpenAI API
-                     messages = [
-                         {
-                             "role": "system", 
-                             "content": "You are a factual and helpful assistant tasked with cohesively summarizing segments from various relevant... "
-                        
-                         },
-                         {
-                             "role": "user",
-                             "content": f'My question is "{question}" Cohesively and factually summarize the following documents to '
-                             f"answer my question.\n------\n{concatenated_input}",
-                         },
-                     ]
-                 
-                     # Ask ChatGPT to summarize the extracted chunks.
-                     retry_count = 0
-                     while retry_count < 3:
-                     # ...
+                     concatenated_input =
 
-                        return summary
-                </code>
 
                - How It Works: Takes user-generated questions and the content of relevant web pages, employing ChatGPT to produce a short, informative summary.</p>
         <p>Refer to <a href="https://github.com/hardikp1/Final-Project/blob/main/README.md">README</a> for detailed instructions.</p> 
