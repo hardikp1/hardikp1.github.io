@@ -31,7 +31,7 @@
         <p>The purpose of the program is to provide users with an intelligent and interactive chat-based information assistant (not chat-based yet). Leveraging GPT models, the program aims to enhance the user's ability to retrieve accurate and relevant information across a wide range of topics.
             The project originated from a desire to try out LLM APIs to build something I'd personally like to use. And with rampant misinformation around us all, Reading Owl seemed like a useful tool.
 
-         <p>Key Features and Goals </p>   
+         <p><strong>Key Features and Goals</strong> </p>   
             
         <p> 1. Diverse Knowledge Base: The program taps into extensive knowledge repositories, enabling users to ask questions on various subjects and receive informative responses.</p>   
             
@@ -39,7 +39,7 @@
             
         <p> 3. Summarization Capabilities: The program can summarize information from multiple sources, providing concise and coherent answers to user queries.</p>
             
-        <p> How It Benefits Users:</p>
+        <p><strong>How It Benefits Users:</strong></p>
             
         <p> Efficient Information Retrieval: Users can quickly obtain information without the need for extensive searches, streamlining the research process.</p>
             
@@ -58,9 +58,9 @@
 
             Our chat-based information assistant operates through a streamlined pipeline that integrates advanced natural language processing (NLP) models to provide users with accurate and relevant information. The pipeline encompasses three key stages: Bing Search, Question Generation, and Summarization.
             
-            1. Bing Search:
-               - Purpose: Initiates the information retrieval process by querying the Bing Search API to obtain relevant web pages.
-               - Implementation:
+        <p>    1. Bing Search:</p>
+        <p>     - Purpose: Initiates the information retrieval process by querying the Bing Search API to obtain relevant web pages.</p>  
+        <p>     - Implementation:</p>  
                  <code>
                     def bing_search(query, top_n=3):
                      # Code for querying Bing Search API and extracting relevant web pages
@@ -79,11 +79,11 @@
                         return return_list
                 
                     </code>
-               - How It Works: Utilizes the Bing Search API to fetch search results based on user queries, retrieving a list of relevant URLs.
+                    <p>    - How It Works: Utilizes the Bing Search API to fetch search results based on user queries, retrieving a list of relevant URLs.</p>
             
-            2. Question Generation:
-               - Purpose: Generates insightful questions related to the retrieved information to encourage lateral reading and critical thinking.
-               - Implementation:
+            <p>2. Question Generation:</p> 
+            <p>  - Purpose: Generates insightful questions related to the retrieved information to encourage lateral reading and critical thinking.</p> 
+            <p>  - Implementation:</p> 
                  <code>
                     def generate_questions(input_text: str, provider='openai'):
                      # Code for calling OpenAI APIs to generate questions based on input text
@@ -101,9 +101,9 @@
                      # ...
                         return questions
                  </code>
-               - How It Works: Utilizes OpenAI's GPT-based model to generate a set of questions, fostering engagement and exploration of diverse perspectives.
+                 <p>   - How It Works: Utilizes OpenAI's GPT-based model to generate a set of questions, fostering engagement and exploration of diverse perspectives.</p> 
             
-            3. Summarization:
+            <p> 3. Summarization:</p> 
                - Purpose: Summarizes information from the relevant web pages to provide users with concise and coherent answers.
                - Implementation:
                  <code>
@@ -112,7 +112,7 @@
                      concatenated_input =
 
 
-               - How It Works: Takes user-generated questions and the content of relevant web pages, employing ChatGPT to produce a short, informative summary.</p>
+                <p>   - How It Works: Takes user-generated questions and the content of relevant web pages, employing ChatGPT to produce a short, informative summary.</p></p>
         <p>Refer to <a href="https://github.com/hardikp1/Final-Project/blob/main/README.md">README</a> for detailed instructions.</p> 
     </section>
 
